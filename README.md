@@ -1,2 +1,2 @@
 # CatHack
-A new bot for Dsicord.
+A new bot for Discord.
