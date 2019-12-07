@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/marianamorais/CatHack/issues"
   },
-  "homepage": "https://github.com/marianamorais/CatHack#readme"
+  "homepage": "https://github.com/marianamorais/CatHack#readme",
+  "dependencies": {
+    "discord.js": "^11.5.1"
+  }
 }
