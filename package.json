@@ -1,0 +1,19 @@
+{
+  "name": "cathack",
+  "version": "1.0.0",
+  "description": "A cute bot for Discord",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marianamorais/CatHack.git"
+  },
+  "author": "Mariana Morais",
+  "license": "MPL-2.0",
+  "bugs": {
+    "url": "https://github.com/marianamorais/CatHack/issues"
+  },
+  "homepage": "https://github.com/marianamorais/CatHack#readme"
+}
