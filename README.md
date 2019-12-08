@@ -1,2 +1,2 @@
 # CatHack
-A new bot for Discord.
+A cute bot for discord 🐈🤖
