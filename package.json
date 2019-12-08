@@ -1,22 +1,30 @@
 {
   "name": "cathack",
   "version": "1.0.0",
-  "description": "A cute bot for Discord",
+  "description": "A cute bot for discord",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon src/index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/marianamorais/CatHack.git"
   },
+  "keywords": [
+    "bot"
+  ],
   "author": "Mariana Morais",
-  "license": "MPL-2.0",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/marianamorais/CatHack/issues"
   },
   "homepage": "https://github.com/marianamorais/CatHack#readme",
   "dependencies": {
-    "discord.js": "^11.5.1"
+    "discord.js": "^11.5.1",
+    "dotenv": "^8.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.1",
+    "sucrase": "^3.10.1"
   }
 }
