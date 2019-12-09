@@ -1,9 +1,9 @@
 import { config } from 'dotenv';
-import Discord from 'discord.js';
+import { Client, RichEmbed } from 'discord.js';
 
 config();
 const { TOKEN_DISCORD } = process.env
-const client = new Discord.Client();
+const client = new Client();
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}`);
@@ -19,4 +19,15 @@ client.on('message', ( msg ) => {
     commands[content] && msg.reply(commands[content]);
 });
 
+client.on('message', (message) => {
+    if(message.content === 'embed') {
+    const embed = new RichEmbed()
+
+        .setTitle('A slick little embed')
+        .setColor(0xFF0000)
+        .setDescription('Hello, this is a slick embed!');
+      message.channel.send(embed);
+    }
+});
+  
 client.login(TOKEN_DISCORD)
