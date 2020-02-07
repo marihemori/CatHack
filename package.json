@@ -1,7 +1,7 @@
 {
   "name": "cathack",
   "version": "1.0.0",
-  "description": "A cat bot for discord",
+  "description": "A cat bot for Discord",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/marianamorais/CatHack#readme",
   "dependencies": {
-    "discord.js": "^11.5.1"
+    "discord.js": "^11.5.1",
+    "dotenv": "^8.2.0",
+    "enmap": "^5.2.4",
+    "moment": "^2.24.0"
   }
 }
