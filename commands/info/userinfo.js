@@ -20,23 +20,38 @@ module.exports = {
         const created = formatDate(member.user.createdAt);
 
         const embed = new RichEmbed()
-            .setTitle(`${member.displayName}`)
-            .setDescription('Informações do usuário:')
-
-            .setFooter('2020 © CatHack')
-            .setThumbnail(member.user.displayAvatarURL)
             .setColor(member.displayHexColor === '#000000' ? '#ffffff' : member.displayHexColor)
-
-            .addField(`**Informações**`, stripIndents`**> Nome:** ${member.displayName}
-            **> Entrou em:** ${joined}
-            **> Cargos:** ${roles}`, true)
-
-            .addField('Informações do usuário:', stripIndents`**> ID:** ${member.user.id}
-            **> Username**: ${member.user.username}
-            **> Tag**: ${member.user.tag}
-            **> Criou em**: ${created}`, true)
+	        .setAuthor(member.displayName, member.user.displayAvatarURL)
+	.setDescription('Some description here')
+	.setThumbnail('https://i.imgur.com/wSTFkRM.png')
+	.addField('Regular field title', 'Some value here')
+	.addBlankField()
+	.addField('Inline field title', 'Some value here', true)
+	.addField('Inline field title', 'Some value here', true)
+	.addField('Inline field title', 'Some value here', true)
+	.setImage('https://i.imgur.com/wSTFkRM.png')
+	.setTimestamp()
+	.setFooter('Some footer text here', 'https://i.imgur.com/wSTFkRM.png');
+            // .setColor(member.displayHexColor === '#000000' ? '#ffffff' : member.displayHexColor)
+            // .setTitle(`${member.displayName}`)
+            // .setDescription('Informações do usuário:')
             
-            .setTimestamp()
+            // .setFooter('2020 © CatHack')
+            // .setThumbnail(member.user.displayAvatarURL)
+
+            // .addField('**Username**:',`${member.user.username}
+            // .addBlankField()
+            // ** Entrou em:** ${joined}`, true)
+           
+            // .addField('**ID do usuário**:',`${member.user.id}
+            // ** Criou em**: ${created}`, true)
+
+            // .addField('**Tag**:',`${member.user.tag}
+            // ** Username**: ${member.user.username}
+            // ** Cargos:** ${roles}`, true)
+
+            
+            // .setTimestamp()
 
         if (member.user.presence.game) 
             embed.addField('Atualmente jogando:', stripIndents`**> Nome:** ${member.user.presence.game.name}`);
