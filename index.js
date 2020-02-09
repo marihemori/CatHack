@@ -52,7 +52,6 @@ client.on("message", async message => {
   // Get the command
   let command = client.commands.get(cmd);
   // If none is found, try to find it by alias
-  if (!command) command = client.commands.get(client.aliases.get(cmd));
 
   // If a command is finally found, run the command
   if (command) 

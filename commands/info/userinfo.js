@@ -9,53 +9,48 @@ module.exports = {
 
     run: (client, message, args) => {
         const member = getMember(message, args.join(" "));
+        const inline = true
+        const status = {
+            online: "<Online",
+            idle: "Ausente",
+            dnd: "Não pertubar",
+            offline: "<Offline/Invisivel"
+          }
+        const date = member.user.createdAt
 
         // Member variables
-        const joined = formatDate(member.joinedAt);
+        const memberJoined = formatDate(member.joinedAt);
         const roles = member.roles
             .filter(r => r.id !== message.guild.id)
             .map(r => r).join(", ") || 'none';
 
-        // User variables
-        const created = formatDate(member.user.createdAt);
+
+            // User variables
 
         const embed = new RichEmbed()
+            .setThumbnail(member.user.displayAvatarURL)
             .setColor(member.displayHexColor === '#000000' ? '#ffffff' : member.displayHexColor)
-	        .setAuthor(member.displayName, member.user.displayAvatarURL)
-	.setDescription('Some description here')
-	.setThumbnail('https://i.imgur.com/wSTFkRM.png')
-	.addField('Regular field title', 'Some value here')
-	.addBlankField()
-	.addField('Inline field title', 'Some value here', true)
-	.addField('Inline field title', 'Some value here', true)
-	.addField('Inline field title', 'Some value here', true)
-	.setImage('https://i.imgur.com/wSTFkRM.png')
-	.setTimestamp()
-	.setFooter('Some footer text here', 'https://i.imgur.com/wSTFkRM.png');
-            // .setColor(member.displayHexColor === '#000000' ? '#ffffff' : member.displayHexColor)
-            // .setTitle(`${member.displayName}`)
-            // .setDescription('Informações do usuário:')
+	        .setTitle(`:cat: ${member.displayName}`)
+            // .setDescription('**Informações do usuário**')
+            .addField("**Username**", `${member.user.tag}`, inline)
+            .addField("**ID**", member.user.id, inline)
             
-            // .setFooter('2020 © CatHack')
-            // .setThumbnail(member.user.displayAvatarURL)
+            .addField("**Criou em**", member.user.createdAt)
+            .addField("Criou em", formatDate('DD/MM/YYYY, às HH:mm:ss', date))
+            .addField("**Entrou em:**", message.member.joinedAt)
+            .addField("**Cargos**", `${member.roles.filter(r => r.id !== message.guild.id).map(roles => `\`${roles.name}\``).join(" **|** ") || "Sem cargos"}`, true)
+            .addField("Online a", moment().to(client.startTime, true))
 
-            // .addField('**Username**:',`${member.user.username}
-            // .addBlankField()
-            // ** Entrou em:** ${joined}`, true)
-           
-            // .addField('**ID do usuário**:',`${member.user.id}
-            // ** Criou em**: ${created}`, true)
+            .setFooter('2020 © CatHack')
+            .setTimestamp()
 
-            // .addField('**Tag**:',`${member.user.tag}
-            // ** Username**: ${member.user.username}
-            // ** Cargos:** ${roles}`, true)
-
-            
-            // .setTimestamp()
+            if (member.user.presence.status)
+            embed.addField("**Status**", `${status[member.user.presence.status]}`, inline, true)
 
         if (member.user.presence.game) 
-            embed.addField('Atualmente jogando:', stripIndents`**> Nome:** ${member.user.presence.game.name}`);
+            embed.addField("**Jogando**", `${member.user.presence.game ? `🎮 ${member.user.presence.game.name}` : "Nada a jogar"}`,inline, true)
 
         message.channel.send(embed);
     }
 }
+
