@@ -19,6 +19,7 @@
   "dependencies": {
     "ascii-table": "0.0.9",
     "common-tags": "^1.8.0",
+    "discord-auditlog": "^1.9.4",
     "discord.js": "^11.5.1",
     "dotenv": "^8.2.0",
     "enmap": "^5.2.4",
