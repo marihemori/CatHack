@@ -37,7 +37,9 @@ module.exports = {
           ? "#ffffff"
           : member.displayHexColor
       )
-      .setTitle(`🐱 ${member.displayName}`)
+  
+      // .setTitle(`${member.displayName}`)
+      .setAuthor(`🐱 Informações do usuário`)
       .addField("**Username**", `${member.user.tag}`, inline)
       .addField("**ID**", member.user.id, inline)
 

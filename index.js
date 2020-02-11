@@ -1,17 +1,11 @@
 const { config } = require("dotenv");
+const Discord = require('discord.js')
+const client = new Discord.Client()
+const Enmap = require('enmap')
 
 /** Cheque se a versão do node.js é a 8.0.0 ou acima */
 if (process.version.slice(1).split('.')[0] < 8) throw new Error('Node 8.0.0 or higher is required. Update Node on your system.');
 
-const Discord = require('discord.js') /* Carrega o discord.js */
-
-/** Carrega outros modulos uteis */
-const { readdirSync } = require('fs')
-const Enmap = require('enmap')
-
-const client = new Discord.Client() /* Instancia o Client do Discord. */
-
-/** Instancia de uma nova collection de comandos. */
 client.commands = new Enmap()
 
 config ({
@@ -50,7 +44,7 @@ client.on("message", async message => {
   if (cmd.length === 0) return;
   
   // Get the command
-  let command = client.commands.get(cmd);
+  const command = client.commands.get(cmd);
   // If none is found, try to find it by alias
 
   // If a command is finally found, run the command

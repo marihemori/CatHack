@@ -7,9 +7,11 @@ let table = new ascii("Comandos");
 table.setHeading("Comandos", "Status do carregamento");
 
 module.exports = (client) => {
-    // Read every commands subfolder
+
+    //Ler cada comando em outras pastas
     readdirSync("./commands/").forEach(dir => {
         // Filter so we only have .js command files
+        
         const commands = readdirSync(`./commands/${dir}/`).filter(file => file.endsWith(".js"));
     
         // Loop over the commands, and add all of them to a collection
@@ -31,17 +33,3 @@ module.exports = (client) => {
     // Log the table
     console.log(table.toString());
 }
-
-/**
- * This is the basic command layout
- * module.exports = {
- *  name: "Command name",
- *  aliases: ["array", "of", "aliases"]
- *  category: "Category name",
- *  description: "Command description"
- *  usage: "[args input]",
- *  run: (client, message, args) => {
- *      The code in here to execute
- *  }
- * }
- */
