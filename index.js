@@ -1,11 +1,9 @@
-const Discord = require("discord.js");
-const config = require("dotenv");
-const fs = require ('fs');
+const { config } = require("dotenv");
 
 /** Cheque se a versão do node.js é a 8.0.0 ou acima */
 if (process.version.slice(1).split('.')[0] < 8) throw new Error('Node 8.0.0 or higher is required. Update Node on your system.');
 
-
+const Discord = require('discord.js') /* Carrega o discord.js */
 
 /** Carrega outros modulos uteis */
 const { readdirSync } = require('fs')
