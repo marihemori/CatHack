@@ -27,7 +27,7 @@ module.exports = {
       )
       .setThumbnail(boticon)
 
-      .setTitle(`🐱 Minhas informações`)
+      .setAuthor(`🐠 Minhas informações`)
       .addField("**Username**", `${client.user.tag}`, inline)
       .addField("**ID**", client.user.id, inline)
       .addField("**Nome**", `${client.user.username}`, inline, true)
