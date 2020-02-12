@@ -1,7 +1,18 @@
 const { RichEmbed } = require("discord.js");
 
 module.exports = {
+  conf: {},
+
+  get help () {
+  return {
+    name: 'say',
+    category: 'Moderação',
+    description: 'Faz o bot enviar tal mensagem.',
+    usage: 'say'
+  }},
+
   run: (client, message, args) => {
+    
 
     if (!message.member.hasPermission(["MANAGE_MESSAGES", "ADMINISTRATOR"]))
       return message.channel
@@ -23,15 +34,6 @@ module.exports = {
     }
   },
 
-  conf: {},
 
- get help () {
- return {
-   name: 'say',
-   category: 'Moderação',
-   description: 'Faz o bot enviar tal mensagem.',
-   usage: 'say'
- }
-}
 }
 
