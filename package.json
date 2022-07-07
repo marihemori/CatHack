@@ -25,7 +25,7 @@
     "discord.js": "^11.5.1",
     "dotenv": "^8.2.0",
     "enmap": "^5.2.4",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "moment-timezone": "^0.5.27",
     "userinfo-discord": "^1.0.2"
   },
